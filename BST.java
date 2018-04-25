@@ -82,6 +82,7 @@ public class BST<K extends Comparable<K>, V> {
 			
 	}
 	
+	/* distance of any node from root node */
 	public int distfromroot(Node x, K key){
 		int count = 0;
 		
