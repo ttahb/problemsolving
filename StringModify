@@ -1,0 +1,59 @@
+import java.util.Scanner;
+import java.util.Map;
+import java.util.HashMap;
+/**
+  Following program modifies the second occurence of a character in the String to its next character value alphabetically.
+  if all 0-9 or a-b are part of string, it will lead to infinte loop.
+*/
+public class MyClass {
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner(System.in);
+        
+        String str = scanner.nextLine();
+        
+        char[] ch = str.toCharArray();
+        
+        Map<Character, Integer> map = new HashMap<>();
+        
+        for(int i = 0; i < ch.length; i++){
+            map.put(ch[i], map.containsKey(ch[i])? map.get(ch[i])+1 : 1);
+        }
+        
+        for(Character  c: map.keySet()){
+            System.out.println(c+" "+map.get(c));
+        }
+        
+        for(Character  c: map.keySet()){
+            int j = 0;
+            if(map.get(c)>1){
+                for(int i = 0; i < ch.length; i++){
+                    if(c == ch[i]){
+                        j++;
+                        if(j == 2){
+                            ch[i] = preProcessChar(ch[i], map);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        
+        System.out.println(String.valueOf(ch));
+    }
+    
+    private static char preProcessChar(char c, Map<Character, Integer> map){
+        
+        do {
+           if(c == 'Z')
+                c = 'A';   
+            else if (c == 'z')
+                c = 'a';
+            else if (c == '9')
+                c = '0';
+            else
+                c = (char) (((int) c) + 1);
+        } while(map.containsKey(c));
+        
+        return c;
+    }
+}
