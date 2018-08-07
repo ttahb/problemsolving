@@ -1,0 +1,31 @@
+package org.basic.designpatterns.singleton;
+
+/**
+ * A singleton class showing Race conditon with Two threads.
+ * @author vijay.prakash
+ *
+ */
+public class Create {
+	
+	private static Create instance;
+	private static Object mutex = new Object();
+	
+	private Create() {
+		
+	}
+	
+	public static Create getInstance() {
+		
+		//System.out.println("Before if"+Thread.currentThread().getName());
+		synchronized(mutex){
+			if(instance == null) {  //t2 enters 
+				instance =  new Create(); 
+				System.out.println("Instance created by"+Thread.currentThread().getName());
+				// t1 here
+			}
+		}
+										
+		return instance;
+		
+	}
+}	
