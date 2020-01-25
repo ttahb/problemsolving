@@ -1,4 +1,6 @@
-/**Yes we can!*/
+/**Yes we can!
+ * Added comment 1 in gitcloneexample2 */
+>>>>>>> f47da3935aa382f6156eb1ec1e43a1a17dfa3a14
 public class BST<K extends Comparable<K>, V> {
 	private class Node {
 		K key;
