@@ -1,3 +1,7 @@
+/**
+ *Some new comments.
+ *
+ * */
 public class BST<K extends Comparable<K>, V> {
 	private class Node {
 		K key;
