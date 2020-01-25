@@ -1,3 +1,6 @@
+/**
+ *Adding comment to LexicoLower in gitcloneexample2.
+ * */
 class LexicoLower {
 	public static void main(String[] args){
 		int k, n;

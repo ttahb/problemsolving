@@ -1,3 +1,5 @@
+/*
+ * Added comment 1 in gitcloneexample2 */
 public class BST<K extends Comparable<K>, V> {
 	private class Node {
 		K key;
